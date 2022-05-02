@@ -3,29 +3,33 @@ const letter = "bici coche balón _playstation bici  coche peluche";
 function listGifts(letter) {
   // ¡Tú puedes!
   //////////////////////////////////////TODO
+
+  //separate the array by the spaces
   var divided = letter.split(" ");
 
-  divided.forEach(value => {
-    console.log(value);
-
-      if(!value.length > 0 ){
-        console.log('ANTES ', divided);
-
-          divided.splice(0,1);
-          //console.log(value);
-          console.log('despues ', divided);
-      }
-  });
-
-
+  for (var i = 0; i<divided.length; i++ )
+  {
+  //Remove empty spaces
+  if(divided[i].length === 0)
+  {
+    divided.splice(i,1);
+  }
+  if (divided[i].charAt(0) === '_')
+  {
+    divided.splice(i,1);
+  }
+  for (var j = 0; j < divided.length; j ++){
+    if (divided[i] === divided[j]){
+      if(j != i)
+      divided.splice(i,1);
+    }
+  } 
+} 
   return divided;
 }
 
 const regalos = listGifts(letter);
 
 console.log(regalos);
-
-
-//console.log(arr[0]); // "Soy"
 
 //<<>
