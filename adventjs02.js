@@ -1,4 +1,4 @@
-const letter = "bici coche balón   _playstation bici  coche  peluche"; //8
+const letter = "bici  coche balón   _playstation bici   coche  peluche"; //8
 
 function listGifts(letter) {
   // ¡Tú puedes!
@@ -6,16 +6,20 @@ function listGifts(letter) {
   var divided = letter.split(" ");
   let i = 0;
 
-  divided = divided.map(element => {
+  /* divided = divided.map(element => {
     return element.trim();
-  });
-  divided.forEach(value => {
+  }); */
+
+  divided.slice(0).forEach(value => {
       if(value[0] === "_" || value === ''){   
-        divided.splice(i,1);
-      }         
+        divided.splice(divided.indexOf(value),1);     
+        
+      }  
+      
       i++;      
   });
-  
+
+
   var res = {};
   var contadas = [];
   var repetidas;
