@@ -2,13 +2,8 @@ const letter = "bici  coche balón   _playstation bici   coche  peluche"; //8
 
 function listGifts(letter) {
   // ¡Tú puedes!
-  //////////////////////////////////////TODO
   var divided = letter.split(" ");
   let i = 0;
-
-  /* divided = divided.map(element => {
-    return element.trim();
-  }); */
 
   divided.slice(0).forEach(value => {
       if(value[0] === "_" || value === ''){   
@@ -19,7 +14,6 @@ function listGifts(letter) {
       i++;      
   });
 
-
   var res = {};
   var contadas = [];
   var repetidas;
@@ -28,10 +22,9 @@ function listGifts(letter) {
     if (!contadas.includes(divided[j]))
     {
       repetidas = VecesRepetidas(divided[j], divided);
-      //Concierto el objeto en array para comprobar si ya fue checkeado
+      //Convierto el objeto en array para comprobar si ya fue checkeado
       if(!Object.values(res).includes(divided[j]))
       {
-        //res.push(divided[j] + ": " + repetidas);
         res[divided[j]] = repetidas;
       }
       contadas.push(divided[j]);
@@ -51,6 +44,7 @@ function VecesRepetidas(word, Array)
   }
   return contador;
 }
+
 
 const regalos = listGifts(letter);
 
