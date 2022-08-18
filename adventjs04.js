@@ -18,11 +18,10 @@ function createXmasTree(height) {
 
 
     function createTrunk(height){ //height = 5
-        console.log("LA MITAD DE ", width, " ES: ", Math.trunc(width/2));
         var trunk = '';
-        let i = (width/2) % 2 == 0 ? 0: -1;
+        //let i = (width/2) % 2 == 0 ? 0: -1;
+        let i = 0;
         for ( i ; i <= width/2; i++) {
-            console.log(i);
             if (i == Math.trunc(width/2))
             {
                 trunk = trunk + '#';
@@ -33,8 +32,12 @@ function createXmasTree(height) {
             }
             
         }
+        for (let y = 1; y < width/2; y++) {
+            trunk = trunk + '_';
+        }
+
+
         trunk = trunk + '\n' + trunk;
-        //console.log(Math.trunc(height/2));
         return trunk;
     }
 
@@ -43,13 +46,10 @@ function createXmasTree(height) {
         let staticWidth = width;
         let miCrown = '';
 
-        //Poner otro for
-        //Ir viendo cuánto debe ocupar relleno cada línea de la corona, y si los astericos no lo llenan, añadir guiones bajos a los lados.
-        for (let z = 0; z < height; z++) // width vale 9, y height vale 5 (la primera vez)
+        for (let z = 0; z < height; z++) 
         {
             switch (width) {
                 case (height * 2) - 1:
-                    console.log('QUÉ VALE WIDTH PRIMERO:', width);
 
                     for (let i = 0 ; i < width; i++) {
                         crown = crown + '*';
@@ -57,7 +57,6 @@ function createXmasTree(height) {
                     break;
                 case (height * 2) - 3:
                     //crown = crown + '\n';
-                    console.log('QUÉ VALE WIDTH:', width);
                     for (let i = 0 ; i < width; i++) {
                         miCrown = miCrown + '*';
                     } 
@@ -68,7 +67,6 @@ function createXmasTree(height) {
                 case (height * 2) - 5:
                     miCrown = '';
                     //crown = crown + '\n';
-                    console.log('QUÉ VALE WIDTH:', width);
                     for (let i = 0 ; i < width; i++) {
                         miCrown = miCrown + '*';
                     } 
@@ -79,7 +77,6 @@ function createXmasTree(height) {
                     case (height * 2) - 7:
                         miCrown = '';
                         //crown = crown + '\n';
-                        console.log('QUÉ VALE WIDTH:', width);
                         for (let i = 0 ; i < width; i++) {
                             miCrown = miCrown + '*';
                         } 
@@ -90,7 +87,6 @@ function createXmasTree(height) {
                         case (height * 2) - 9:
                             miCrown = '';
                             //crown = crown + '\n';
-                            console.log('QUÉ VALE WIDTH:', width);
                             for (let i = 0 ; i < width; i++) {
                                 miCrown = miCrown + '*';
                             } 
@@ -112,14 +108,10 @@ function createXmasTree(height) {
 }
 
 function CompleteSpaces(actual, width){
-    console.log("HOLA desde CompleteSpaces, actual.length=", actual.length , 'width', width, 'actual: ', actual);
     if (actual.length < width)
     {
-        console.log("HOLA desde el if CompleteSpaces");
 
         let total = width - actual.length;
-        console.log('total: ', total);
-        console.log("DIFERENCIA, total: ", total);
         for (let i = 0; i < total/2; i++)
         {
             actual = '_' + actual + '_';
@@ -128,7 +120,7 @@ function CompleteSpaces(actual, width){
     return actual;
 }
 
-  console.log(createXmasTree(5));
+  console.log(createXmasTree(3));
 
 
 
