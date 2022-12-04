@@ -1,25 +1,12 @@
 function daysToXmas(date) {
-    // ¡Y no olvides compartir tu solución en redes!
-    //return 0
+    const elDay = new Date('Dec 25, 2021 00:00:00');
+    //Por algún motivo da error si pongo los números sólo
+    const theDay = new Date(Date.UTC(elDay.getFullYear(), elDay.getMonth(), elDay.getDate(), elDay.getHours(), elDay.getMinutes(), elDay.getSeconds()));
 
-    let date1 = new Date('Dec 1, 2021');
-    let date2 = new Date('Dec 6, 2021');
-
-    var first = '2020-12-01T00:00:00Z';//'01/25/2020';
-    var second = 'January 15, 2020';
+    const incomingDate =  new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
  
-    var x = new Date(first);
-   // x.setMinutes(x.getMinutes() + x.getTimezoneOffset());
-    var y = new Date(second);
-    console.log('Mirando el getMinutes de first: ', date1.getMinutes());
-
-    y.setMinutes(y.getMinutes() + y.getTimezoneOffset())
-
-    console.log('first: ', first, '\n',  'x: ', x, '\n', 'second: ', second, '\n','y: ', y);
-//fecha.setMinutes(fecha.getMinutes() + fecha.getTimezoneOffset())
-
-
-    return date1-date2;
+    let resta = theDay-incomingDate;
+    return Math.round(resta/ (1000*60*60*24)); 
 }
 
-console.log(daysToXmas(new Date('Dec 1, 2021')));
+console.log(daysToXmas(new Date('Dec 02, 2021 23:59:59')));
