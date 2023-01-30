@@ -3,7 +3,7 @@
     var arrayRes = [];
     var numbersUpdated = numbers.slice();
 
-    // TODO Use foreach instead of for
+    // TODO Use foreach instead of for --> foreach can't break the loop
   for (let i = 0; i < numbers.length; i++) {
     var myChoosed = numbers[i];
     numbersUpdated.splice(0,1);
